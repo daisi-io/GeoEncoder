@@ -16,8 +16,7 @@ def address_to_coordinates(address):
         "longitude": location.longitude if location else None,
     }
 
-    return [{"id": "address_to_coordinates", "type": "json", "data": data}]
-
+    return data
 
 def coordinates_to_address(latitude, longitude):
     geolocator = Nominatim(user_agent="daisi_geocoder")
@@ -29,9 +28,8 @@ def coordinates_to_address(latitude, longitude):
         "longitude": location.longitude if location else None,
     }
     
-    return [{"id": "coordinates_to_address", "type": "json", "data": data}]
-    
+    return data
+
 if __name__ == "__main__": 
-    # print(parse_address("8803 Willow Wind Ln Houston"))
     print(address_to_coordinates("Champ de Mars, Paris, France"))
     print(coordinates_to_address(52.509669, 13.376294))
